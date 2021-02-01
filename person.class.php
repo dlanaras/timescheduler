@@ -15,7 +15,8 @@ class Person
     public $name;
     public $vorname;
 
-    public function __construct($name, $vorname) {
+    public function __construct($name, $vorname)
+    {
         $this->name = $name;
         $this->vorname = $vorname;
     }

@@ -14,8 +14,10 @@
  /**
   * Constructor for the different people
   *
+  * @param string $name lastname of person 
+  * @param string $vorname Prename of person
   *
-  *
+  * @return string
   */
 class Person
 {

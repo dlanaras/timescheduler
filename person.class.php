@@ -21,6 +21,10 @@ class Person
     }
 }
 
-$per1 = new Person("Dimitrios", "Lanaras");
+$userinput[0] = readline("Geben Sie Ihre Nachname ein: \n");
+$userinput[1] = readline("Geben Sie Ihre Vorname ein: \n");
 
-print_r($per1);
+$per1 = new Person("Lanaras", "Dimitrios");
+$per2 = new Person($userinput[0], $userinput[1]);
+
+var_dump($per1, $per2);

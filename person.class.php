@@ -14,4 +14,13 @@ class Person
 {
     public $name;
     public $vorname;
+
+    public function __construct($name, $vorname) {
+        $this->name = $name;
+        $this->vorname = $vorname;
+    }
 }
+
+$per1 = new Person("Dimitrios", "Lanaras");
+
+print_r($per1);

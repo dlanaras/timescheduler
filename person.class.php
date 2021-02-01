@@ -10,6 +10,13 @@
   * @link     https://github.com/dlanaras/timescheduler/tree/master
   */
 
+
+ /**
+  * Constructor for the different people
+  *
+  *
+  *
+  */
 class Person
 {
     public $name;
@@ -22,8 +29,8 @@ class Person
     }
 }
 
-$userinput[0] = readline("Geben Sie Ihre Nachname ein: \n");
-$userinput[1] = readline("Geben Sie Ihre Vorname ein: \n");
+$userinput[0] = readline("Geben Sie Ihre Nachname ein: ");
+$userinput[1] = readline("Geben Sie Ihre Vorname ein: ");
 
 $per1 = new Person("Lanaras", "Dimitrios");
 $per2 = new Person($userinput[0], $userinput[1]);

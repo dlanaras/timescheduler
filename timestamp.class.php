@@ -10,12 +10,20 @@
   * @link     https://github.com/dlanaras/timescheduler/tree/master
   */
 
+/**
+ * Stempel
+ */
 class Stempel 
 {
-    public $start;
-    public $end;
-    public $project;
-
+    public  $start;
+    public  $end;
+    public  $project;
+    
+    /**
+     * __setStamp
+     *
+     * @return void
+     */
     public function __setStamp() 
     {
         //Does something

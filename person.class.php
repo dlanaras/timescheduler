@@ -34,7 +34,19 @@ class Person
 $userinput[0] = readline("Geben Sie Ihre Nachname ein: ");
 $userinput[1] = readline("Geben Sie Ihre Vorname ein: ");
 
-$per1 = new Person("Lanaras", "Dimitrios");
-$per2 = new Person($userinput[0], $userinput[1]);
+$per1 = new Person($userinput[0], $userinput[1]);
+$per2 = new Person("Filler", "Filler");
 
-var_dump($per1, $per2);
+$handle = fopen("./data.json", "w");
+$towrite = "[ \n" . json_encode($per2). ",\n" . json_encode($per1) . "\n]";
+fwrite($handle, $towrite);
+fclose($handle);
+
+$handle = fopen("./data.json", "r");
+echo fread($handle, filesize("./data.json"));
+fclose($handle);
+
+
+
+
+//var_dump($per1, $per2);

@@ -35,18 +35,24 @@ class Stempel
         //if stamp isset on start and isset on project -> those 2 arent isset and end isset
         $data = json_decode($handle, true);
         
+
+        //if { "Timestamp": [ not in filegetcontents then create it also add filler after it
         foreach($data['Person'] as $result) {
         if($answer == $result['vorname']) {
           $filename = $result['vorname'] . ".json";
           $conn = fopen($filename, "a+");
           $stat = fstat($conn);
+
+          if($stat['size'] > 2) {
           ftruncate($conn, $stat['size']-2);
           fwrite($conn, "," . "\n" . $jsonstamp);
           fwrite($conn, "\n]}");
           fclose($conn);
+          } else {
+            fwrite($conn, '{ "Timestamp": [' . "\n" . '{"start":"Test","end":"Test","project":"Test"}' . "\n]}" );
+          }
         } 
 
-        //For now the timestamps in the newly created files cannot be printed out due to wrong formating of json
       }
 
         print_r($stamp);

@@ -50,19 +50,33 @@ class Person
             //$towrite = json_encode($per1). ",\n" . json_encode($per2);
             fwrite($handle, $towrite);
         }
-        fwrite($handle, "\n]");
+        fwrite($handle, "\n]}");
 
         fclose($handle);
     } 
-
+    
+    /**
+     * get_from_json
+     *
+     * @return string
+     */
     public function get_from_json() {
+
 
         $handle = file_get_contents("./data.json", "r");
         $data = json_decode($handle, true);
+        $i = 1;
+        /*
         foreach($data as $result) {
-            foreach ($result as $res){
-                echo $res . "\n";
+            foreach ($result as $name){
+                echo $name . "\n";
+                $i++;
             }
+        }*/
+
+        foreach($data['Person'] as $result) {
+            echo $result['vorname'] . ": " . $i . "\n";
+            $i++;
         }
     }
 }

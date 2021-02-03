@@ -34,4 +34,21 @@ foreach($results as $row) {
     printf("%s %s: #%d", $vorname, $name, $i);
     $i++;
 }
+
+echo "Bitte wählen Sie zuerst die 1 um zu kontrollieren ob Sie schon registriert sind";
+
+switch($answer) {
+case (1):
+choose user 
+break;
+case(2):
+register user
+break;
+case(3):
+add timestamp
+break;
+default: 
+echo "Bitte geben Sie nur gültige Eingaben ein (1, 2 oder 3)"
+
+}
 */

@@ -17,7 +17,7 @@ $i = 1; //index
 
 echo "Bitte wählen Sie ihre Name";
 
-/*
+/* logical notes?
 //open the file
 $opened = fopen("./data.json", "r") or die("Datei könnte nicht geöfnet werden");
 

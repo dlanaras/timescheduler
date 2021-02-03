@@ -14,4 +14,8 @@
 {"start":"12:45:28","end":"12:45:28","project":"this"}
 ,
 {"start":"12:46:06","end":"12:46:06","project":"works"}
+,
+{"start":null,"end":"02:38:25","project":null}
+,
+{"start":"02:39:00","end":null,"project":"etwas"}
 ]}

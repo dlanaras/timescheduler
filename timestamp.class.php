@@ -67,8 +67,7 @@ class Stempel
 
 }
 
-$bigtest = new Stempel("", "", "");
-$bigtest->__setStamp();
+
 
 //It's going to be turned into a function soon 
 

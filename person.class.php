@@ -37,14 +37,14 @@ class Person
 
         //nicht sehr effizient aber es funktioniert
         $stat = fstat($handle);
-        ftruncate($handle, $stat['size']-1);
+        ftruncate($handle, $stat['size']-2);
 
         while ($answer != "nein") {
             $userinput[0] = readline("Geben Sie Ihre Nachname ein: ");
             $userinput[1] = readline("Geben Sie Ihre Vorname ein: ");
             $per = new Person($userinput[0], $userinput[1]);
 
-            $answer = readline("Wollen Sie noch einen Benutzer einfügen?");
+            $answer = readline("Wollen Sie noch einen Benutzer einfügen? (nein eingeben um das Programm zu beenden): ");
 
             $towrite = "," .PHP_EOL . json_encode($per);
             //$towrite = json_encode($per1). ",\n" . json_encode($per2);
@@ -65,7 +65,6 @@ class Person
 
         $handle = file_get_contents("./data.json", "r");
         $data = json_decode($handle, true);
-        $i = 1;
         /*
         foreach($data as $result) {
             foreach ($result as $name){
@@ -75,16 +74,15 @@ class Person
         }*/
 
         foreach($data['Person'] as $result) {
-            echo $result['vorname'] . ": " . $i . "\n";
-            $i++;
+            echo $result['vorname'] . "\n";
         }
     }
 }
 
 //Instanceing 
-$test = new Person("", "");
+
 //and writing into data.json
-//$test->add_to_json();
+
 
 //read
-$test->get_from_json();
+

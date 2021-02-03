@@ -29,7 +29,7 @@ class Person
         $this->name = $name;
         $this->vorname = $vorname;
     }
-
+    
     public function add_to_json()
     {
         $handle = fopen("./data.json", "a+");
@@ -53,9 +53,24 @@ class Person
         fwrite($handle, "\n]");
 
         fclose($handle);
+    } 
 
+    public function get_from_json() {
+
+        $handle = file_get_contents("./data.json", "r");
+        $data = json_decode($handle, true);
+        foreach($data as $result) {
+            foreach ($result as $res){
+                echo $res . "\n";
+            }
+        }
     }
 }
 
+//Instanceing 
 $test = new Person("", "");
-$test->add_to_json();
+//and writing into data.json
+//$test->add_to_json();
+
+//read
+$test->get_from_json();

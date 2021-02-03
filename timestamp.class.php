@@ -29,19 +29,35 @@ class Stempel
         //checks if name entered is in array and creates file out of the name also adds timestamp in file
         $answer = readline("Wie heissen Sie: ");
         $project = readline("Woran arbeiten Sie jetzt? ");
-        $stamp = new Stempel(date("h:i:s"), date("h:i:s"), $project);
-        $jsonstamp = json_encode($stamp, true);
-        $handle = file_get_contents("./data.json", "r");
-        //if stamp isset on start and isset on project -> those 2 arent isset and end isset
-        $data = json_decode($handle, true);
-        
+        //if stamp isset on start and isset on project -> those 2 arent isset and end is isset
+        //readcontents of json file and then check if start and project isset if not then create them else end = isset
 
+        $handle = file_get_contents("./data.json", "r");
+        $data = json_decode($handle, true);
+
+
+
+
+        
         //if { "Timestamp": [ not in filegetcontents then create it also add filler after it
         foreach($data['Person'] as $result) {
         if($answer == $result['vorname']) {
           $filename = $result['vorname'] . ".json";
           $conn = fopen($filename, "a+");
           $stat = fstat($conn);
+
+          $startOrEnd = file_get_contents($filename, "r");
+          $decodeDecision = json_decode($startOrEnd, true);
+          foreach($decodeDecision['Timestamp'] as $res) {
+            if(isset($res['start']) == true) {
+              $stamp = new Stempel(NULL, date("h:i:s"), NULL);
+              $jsonstamp = json_encode($stamp, true);
+            } else {
+              $stamp = new Stempel(date("h:i:s"), NULL, $project);
+              $jsonstamp = json_encode($stamp, true);
+            }
+          }
+
 
           if($stat['size'] > 2) {
           ftruncate($conn, $stat['size']-2);
@@ -56,6 +72,7 @@ class Stempel
       }
 
         print_r($stamp);
+        echo "Wenn Etwas vor diese Linie ausgegeben wird, bedeutet dies dass der Prozess erfolgreich war.";
     }
 
     public function __construct($start, $end, $project) 

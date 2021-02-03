@@ -13,9 +13,32 @@
 require_once("./person.class.php");
 require_once("./timestamp.class.php");
 
-$i = 1; //index
+echo "      _________________________________
+      |1: Namensliste                 |
+      |2: Registration                |
+      |3: Stempel machen              |
+      |_______________________________| 
+      ";
 
-echo "Bitte wählen Sie ihre Name";
+$answer = readline("Bitte wählen Sie eine Zahl: ");
+
+
+switch($answer) {
+case (1):
+  $test = new Person("", "");
+  $test->get_from_json();
+break;
+case(2):
+  $test = new Person("", "");
+  $test->add_to_json();
+break;
+case(3):
+  $bigtest = new Stempel("", "", "");
+  $bigtest->__setStamp();
+break;
+default: 
+echo "Bitte geben Sie nur gültige Eingaben ein (1, 2 oder 3)";
+}
 
 /* logical notes?
 //open the file
@@ -36,19 +59,4 @@ foreach($results as $row) {
 }
 
 echo "Bitte wählen Sie zuerst die 1 um zu kontrollieren ob Sie schon registriert sind";
-
-switch($answer) {
-case (1):
-choose user 
-break;
-case(2):
-register user
-break;
-case(3):
-add timestamp
-break;
-default: 
-echo "Bitte geben Sie nur gültige Eingaben ein (1, 2 oder 3)"
-
-}
 */

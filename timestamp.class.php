@@ -56,8 +56,10 @@ class Stempel
               $stamp = new Stempel(date("h:i:s"), NULL, $project);
               $jsonstamp = json_encode($stamp, true);
             }
+
           }
 
+          //$time = ($json_decoded)[$i][0]['Endtime'] - ($json_decoded)[$i][0]['Starttime'];
 
           if($stat['size'] > 2) {
           ftruncate($conn, $stat['size']-2);
@@ -73,6 +75,9 @@ class Stempel
 
         print_r($stamp);
         echo "Wenn Etwas vor diese Linie ausgegeben wird, bedeutet dies dass der Prozess erfolgreich war.";
+        
+       /* $rest = strtotime($decodeDecision['Timestamp'][array_key_last($decodeDecision['Timestamp'])]['end']) - strtotime($decodeDecision['Timestamp'][array_key_last($decodeDecision['Timestamp'])]['start']);
+        echo $rest;*/
     }
 
     public function __construct($start, $end, $project) 

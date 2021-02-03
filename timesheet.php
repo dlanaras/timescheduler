@@ -34,6 +34,7 @@ case(2):
   $test->add_to_json();
 break;
 case(3):
+  echo "(Bei neuen Benutzer wird zuerst eine Fehlermeldung heraus kommen. Wenn Sie die Zahl 3 2-Mal starten, sollte das richtig funktionieren)";
   $bigtest = new Stempel("", "", "");
   $bigtest->__setStamp();
 break;

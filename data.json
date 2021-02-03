@@ -1,5 +1,15 @@
-[ 
-{"name":"Dimitrios","vorname":"Lanaras"},
-{"name":"Tobias","vorname":"Bertschi"},
-{"name":"Vorname","vorname":"Nachname"}
-]
+{"Person": [
+{"name":"Lanaras","vorname":"Dimitrios"},
+{"name":"Longigtude","vorname":"Andrew"},
+{"name":"Smolders","vorname":"Alex"}
+,
+{"name":"Arizona","vorname":"Eistee"}
+,
+{"name":"Bertschi","vorname":"Tobias"}
+,
+{"name":"This is ","vorname":"a test"}
+,
+{"name":"Lanaras","vorname":"Dimitrios"}
+,
+{"name":"Pablo","vorname":"Pablo"}
+]}
